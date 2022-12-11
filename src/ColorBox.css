@@ -5,4 +5,57 @@
     margin: 0 auto;
     position: relative;
     cursor: pointer;
+    margin-bottom: -4px;
+}
+
+.ColorBox-copy-btn{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -15px;
+    text-align: center;
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    font-size: 1rem;
+    line-height: 30px;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.ColorBox:hover .ColorBox-copy-btn{
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.ColorBox-box-content{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    color: black;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.ColorBox-see-more{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    width: 60px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
 }
