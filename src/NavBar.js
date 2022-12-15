@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import FormControl from '@mui/material/FormControl';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 import { Link } from 'react-router-dom';
 import 'rc-slider/assets/index.css';
 import Slider from "rc-slider";

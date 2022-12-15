@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.2",
-    "@material-ui/icons": "^3.0.2",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@material-ui/styles": "^4.11.5",
     "chroma-js": "^2.0.3",
     "rc-slider": "^8.6.6",
     "react": "^16.8.4",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
