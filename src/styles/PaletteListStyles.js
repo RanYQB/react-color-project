@@ -19,8 +19,10 @@ export default {
       display: 'flex', 
       justifyContent: 'space-between', 
       alignItems: 'center', 
-      width: '100%'
-      
+      width: '100%',
+      "& a": {
+        color: "white"
+      }
     },
     palettes: {
       boxSizing: 'border-box', 
