@@ -1,4 +1,4 @@
-export default {
+const styles = {
     palette: {
       height: "100vh",
       width: "100%",
@@ -15,7 +15,7 @@ export default {
       display: "inline-block",
       position: "relative",
       cursor: "pointer",
-      marginBottom: "-4px", 
+      marginBottom: "-5px", 
       backgroundColor: "black",
       color: "white",
   },
@@ -39,3 +39,4 @@ export default {
       textDecoration: "none"
   }
   }
+  export default styles;

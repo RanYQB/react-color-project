@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emoji-mart/data": "^1.1.1",
+    "@emoji-mart/react": "^1.1.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@material-ui/styles": "^4.11.5",
     "chroma-js": "^2.0.3",
+    "emoji-mart": "^5.4.0",
     "rc-slider": "^8.6.6",
     "react": "^16.8.4",
     "react-color": "^2.19.3",

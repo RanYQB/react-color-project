@@ -1,4 +1,6 @@
-export default {
+
+
+const styles = {
     root: {
         backgroundColor: 'white', 
         padding: '0.5rem', 
@@ -42,6 +44,7 @@ export default {
         display: 'inline-block',
         margin: '0 auto',
         position: 'relative', 
-        marginBottom: '-4px'
+        marginBottom: '-5px'
     }
 }
+export default styles;

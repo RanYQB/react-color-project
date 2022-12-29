@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react'; 
 import { Link } from 'react-router-dom';
+import PaletteMetaForm from './PaletteMetaForm';
 import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -9,63 +10,33 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
-import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import { withStyles } from '@material-ui/core/styles';
-
-const drawerWidth = 400;
-
-const styles = theme => ({
-    root: {
-        display: "flex"
-    },
-    appBar: {
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-      flexDirection: "row", 
-      justifyContent: "space-between", 
-      height: "64px"
-    },
-    appBarShift: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    navBtns: {
-
-    }
-});
+import styles from './styles/PaletteFormNavStyles';
 
 class PaletteFormNav extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            newPaletteName: ""
-        }
+        this.state = {dialogShowing: false}
         this.handleChange = this.handleChange.bind(this);
+        this.showDialog = this.showDialog.bind(this);
+        this.closeDialog = this.closeDialog.bind(this);
     }
-    componentDidMount() {
-        ValidatorForm.addValidationRule('isPaletteNameUnique', value => 
-          this.props.palettes.every(
-            ({paletteName}) => paletteName.toLowerCase() !== value.toLowerCase()
-          )
-        );
-    }
+    
     handleChange(event){
         this.setState({
           [event.target.name]: event.target.value
         })
     }
+    showDialog(){
+        this.setState({dialogShowing: true})
+    }
+    closeDialog(){
+        this.setState({dialogShowing: false});
+      };
     render(){
-        const { classes , open , handleDrawerOpen , handleSubmit} = this.props;
-        const { newPaletteName } = this.state;
+        const { classes , open , handleDrawerOpen , handleSubmit , palettes} = this.props;
+        const { dialogShowing } = this.state; 
+ 
         return(
             <div className={classes.root}>
                 <CssBaseline />
@@ -91,24 +62,24 @@ class PaletteFormNav extends Component{
                         </Typography>
                     </Toolbar>
                     <div className={classes.navBtns}>
-                        <ValidatorForm onSubmit={() => handleSubmit(newPaletteName)}>
-                            <TextValidator
-                                label="Palette name"
-                                value={newPaletteName}
-                                name='newPaletteName'
-                                onChange={this.handleChange}
-                                validators={['required', 'isPaletteNameUnique']}
-                                errorMessages={['Enter a palette name', 'Palette name must be unique']}
-                                />
-                            <Button type='submit' variant='contained' color='primary'>Save palette</Button>
-                        </ValidatorForm>
                         <Link to='/'>
-                            <Button variant='contained' color='secondary'>go back</Button>
+                            <Button variant='contained' className={classes.button} color='secondary'>go back</Button>
                         </Link>
+                        <Button variant="contained" className={classes.button} color="primary" onClick={this.showDialog}>
+                            Save palette
+                        </Button>
                     </div>
                 </AppBar>
+                { this.state.dialogShowing && ( 
+                <PaletteMetaForm 
+                    open={dialogShowing} 
+                    handleSubmit={handleSubmit}
+                    handleClose={this.closeDialog} 
+                    palettes={palettes}/> 
+                    
+                )}
             </div>
         )
     }
 }
-export default withStyles(styles, {withTheme: true} )(PaletteFormNav);
+export default withStyles(styles, {withTheme: true})(PaletteFormNav);
