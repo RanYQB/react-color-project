@@ -1,3 +1,4 @@
+import sizes from "./sizes";
 const styles = {
     navbar: {
       display: "flex",
@@ -38,6 +39,9 @@ const styles = {
         height: "13px",
         marginLeft: "-7px",
         marginTop: "-3px"
+      },
+      [sizes.down("md")]: {
+        width: "150px"
       }
     },
     selectContainer: {
